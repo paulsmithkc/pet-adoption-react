@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import PetListItem from './PetListItem';
 
-function PetList({ auth }) {
+function PetList({ auth, showError }) {
   const [pending, setPending] = useState(true);
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
@@ -27,14 +27,16 @@ function PetList({ auth }) {
           setItems(res.data);
         } else {
           setError('Expected an array.');
+          showError('Expected an array.');
         }
       })
       .catch((err) => {
         console.error(err);
         setPending(false);
         setError(err.message);
+        showError(err.message);
       });
-  }, [auth]);
+  }, [auth, showError]);
 
   return (
     <div>

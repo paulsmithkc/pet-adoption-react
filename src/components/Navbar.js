@@ -1,4 +1,9 @@
 function Navbar({ auth, screen, onNavigate, onLogout }) {
+  function onClickLogout(evt) {
+    evt.preventDefault();
+    onLogout();
+  }
+
   return (
     <header className="navbar navbar-expand navbar-dark bg-dark">
       <nav className="container-fluid">
@@ -20,7 +25,7 @@ function Navbar({ auth, screen, onNavigate, onLogout }) {
               <a
                 className="nav-link"
                 href="/login"
-                onClick={(evt) => onLogout()}
+                onClick={(evt) => onClickLogout(evt)}
               >
                 Logout
               </a>

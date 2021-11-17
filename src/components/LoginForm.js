@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 
 import InputField from './InputField';
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, showError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -30,6 +30,7 @@ function LoginForm({ onLogin }) {
 
     if (emailError || passwordError) {
       setError('Please fix errors above.');
+      showError('Please fix errors above.');
       return;
     }
 
@@ -56,6 +57,7 @@ function LoginForm({ onLogin }) {
         if (resError) {
           if (typeof resError === 'string') {
             setError(resError);
+            showError(resError);
           } else if (resError.details) {
             setError(_.map(resError.details, (x) => <div>{x.message}</div>));
           } else {
@@ -63,6 +65,7 @@ function LoginForm({ onLogin }) {
           }
         } else {
           setError(err.message);
+          showError(err.message);
         }
       });
 
