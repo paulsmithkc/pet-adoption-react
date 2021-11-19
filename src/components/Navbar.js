@@ -1,4 +1,6 @@
-function Navbar({ auth, screen, onNavigate, onLogout }) {
+import { NavLink } from 'react-router-dom';
+
+function Navbar({ auth, onLogout }) {
   function onClickLogout(evt) {
     evt.preventDefault();
     onLogout();
@@ -11,34 +13,26 @@ function Navbar({ auth, screen, onNavigate, onLogout }) {
         <ul className="navbar-nav">
           {!auth && (
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="/login"
-                onClick={(evt) => onNavigate(evt, '/login')}
-              >
+              <NavLink className="nav-link" to="/login">
                 Login
-              </a>
+              </NavLink>
             </li>
           )}
           {auth && (
             <li className="nav-item">
-              <a
+              <NavLink
                 className="nav-link"
-                href="/login"
+                to="/login"
                 onClick={(evt) => onClickLogout(evt)}
               >
                 Logout
-              </a>
+              </NavLink>
             </li>
           )}
           <li className="nav-item">
-            <a
-              className="nav-link"
-              href="/pet/list"
-              onClick={(evt) => onNavigate(evt, '/pet/list')}
-            >
+            <NavLink className="nav-link" to="/pet/list">
               Pet List
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
