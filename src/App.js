@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoginForm from './components/LoginForm';
 import PetList from './components/PetList';
-import Home from './components/Home';
+// import Home from './components/Home';
 import NotFound from './components/NotFound';
 import PetEditor from './components/PetEditor';
 
