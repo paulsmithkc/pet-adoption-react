@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import jwt from 'jsonwebtoken';
 
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
@@ -16,23 +17,41 @@ import PetEditor from './components/PetEditor';
 function App() {
   const [auth, setAuth] = useState(null);
   const navigate = useNavigate();
-  // const [screen, setScreen] = useState('/login');
 
-  // function onNavigate(evt, href) {
-  //   evt.preventDefault();
-  //   setScreen(href);
-  // }
+  useEffect(() => {
+    if (localStorage) {
+      const storedAuthToken = localStorage.getItem('authToken');
+      if (storedAuthToken) {
+        const authPayload = jwt.decode(storedAuthToken);
+        if (authPayload) {
+          const auth = {
+            token: storedAuthToken,
+            payload: authPayload,
+            email: authPayload.email,
+            userId: authPayload._id,
+          };
+          setAuth(auth);
+        }
+      }
+    }
+  }, []);
 
   function onLogin(auth) {
     setAuth(auth);
     navigate('/pet/list');
     showSuccess('Logged in!');
+    if (localStorage) {
+      localStorage.setItem('authToken', auth.token);
+    }
   }
 
   function onLogout() {
     setAuth(null);
     navigate('/login');
     showSuccess('Logged out!');
+    if (localStorage) {
+      localStorage.removeItem('authToken');
+    }
   }
 
   function showError(message) {
