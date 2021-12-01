@@ -32,7 +32,6 @@
   "engines": {
     "node": "16.9.1"
   },
-  "heroku-run-build-script": true,
   "browserslist": {
     "production": [
       ">0.2%",
