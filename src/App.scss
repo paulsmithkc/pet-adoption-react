@@ -1,0 +1,42 @@
+// set variables up here, such as colors and font-family
+$palette1: #3feb5d;
+$palette2: #6af543;
+$palette3: #a4db3d;
+$palette4: #f2ee38;
+$palette5: #e8cd35;
+$palette6: #6f51b0;
+$palette7: #fa9123;
+
+$primary: $palette6;
+$secondary: $palette7;
+$font-family-base: 'Open Sans', sans-serif;
+$font-family-header: 'Oswald', sans-serif;
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/Oswald/Oswald-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf');
+}
+
+// replace [theme] with the name of your selected theme
+@import '~bootswatch/dist/quartz/variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~bootswatch/dist/quartz/bootswatch';
+
+// add additional css rules here...
+body {
+  background-image: linear-gradient(135deg, $palette1, $palette5);
+}
+h1, h2, h3, h4, h5, h6,
+.fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
+  font-family: $font-family-header;
+}
