@@ -4,6 +4,7 @@ import _ from 'lodash';
 import jwt from 'jsonwebtoken';
 
 import { Link } from 'react-router-dom';
+import { FaDoorOpen } from 'react-icons/fa';
 import InputField from './InputField';
 
 function LoginForm({ onLogin, showError }) {
@@ -116,6 +117,7 @@ function LoginForm({ onLogin, showError }) {
             type="submit"
             onClick={(evt) => onClickSubmit(evt)}
           >
+            <FaDoorOpen className="me-1" />
             Login
           </button>
           <div>
