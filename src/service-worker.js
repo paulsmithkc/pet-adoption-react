@@ -7,7 +7,7 @@ import { registerRoute, NavigationRoute } from 'workbox-routing';
 // Claim clients that were connected to a previous version of the service worker.
 clientsClaim();
 
-// Configure the prefix and suffix of caches
+// Configure the prefix and suffix for cache names.
 setCacheNameDetails({
   prefix: 'pet-adoption',
   suffix: ''
