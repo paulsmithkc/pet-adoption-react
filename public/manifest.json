@@ -1,7 +1,8 @@
 {
   "id": "paulsmithkc/pet-adoption",
   "short_name": "Pet Adopt",
-  "name": "Pet Adoption Agency Sample App",
+  "name": "Pet Adopt",
+  "description": "Pet Adoption Agency Sample App",
   "icons": [
     {
       "src": "favicon.ico",
